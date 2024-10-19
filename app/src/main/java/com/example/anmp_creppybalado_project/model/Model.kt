@@ -1,11 +1,13 @@
 package com.example.anmp_creppybalado_project.model
 
 import android.widget.DatePicker
+import com.google.gson.annotations.SerializedName
 
 data class WhatWePlay(
+    val id: String?,
+    val url: String?,
     val name: String?,
     val description: String?,
-    val detail: DetailPlay?,
 )
 
 data class DetailPlay(
