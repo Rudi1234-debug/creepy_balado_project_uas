@@ -42,7 +42,10 @@ class WhatWePlayAdapter(val whatWePlayList:ArrayList<WhatWePlay>)
         }
 
         holder.binding.btnTeam.setOnClickListener {
-
+            val action = WhatWePlayFragmentDirections.actionTeamFragment(
+                whatWePlayList[position].url ?: ""
+            )
+            Navigation.findNavController(it).navigate(action)
         }
     }
 }

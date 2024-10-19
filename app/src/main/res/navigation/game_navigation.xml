@@ -12,27 +12,43 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/actionWhatWePlay"
-            app:destination="@id/whatWePlayFragment" />
+            app:destination="@id/itemWhatWePlay" />
         <action
             android:id="@+id/actionScheduleFragment"
-            app:destination="@id/scheduleFragment" />
+            app:destination="@id/itemOurSchedule" />
         <action
             android:id="@+id/actionWhoWeAre"
-            app:destination="@id/whoWeAreFragment" />
+            app:destination="@id/itemWhoWeAre" />
     </fragment>
     <fragment
-        android:id="@+id/whatWePlayFragment"
+        android:id="@+id/itemWhatWePlay"
         android:name="com.example.anmp_creppybalado_project.view.WhatWePlayFragment"
         android:label="fragment_what_we_play"
-        tools:layout="@layout/fragment_what_we_play" />
+        tools:layout="@layout/fragment_what_we_play" >
+        <action
+            android:id="@+id/actionTeamFragment"
+            app:destination="@id/teamFragment" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
     <fragment
-        android:id="@+id/scheduleFragment"
+        android:id="@+id/itemOurSchedule"
         android:name="com.example.anmp_creppybalado_project.view.ScheduleFragment"
         android:label="fragment_schedule"
         tools:layout="@layout/fragment_schedule" />
     <fragment
-        android:id="@+id/whoWeAreFragment"
+        android:id="@+id/itemWhoWeAre"
         android:name="com.example.anmp_creppybalado_project.view.WhoWeAreFragment"
         android:label="fragment_who_we_are"
         tools:layout="@layout/fragment_who_we_are" />
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="com.example.anmp_creppybalado_project.view.TeamFragment"
+        android:label="fragment_team"
+        tools:layout="@layout/fragment_team" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>
