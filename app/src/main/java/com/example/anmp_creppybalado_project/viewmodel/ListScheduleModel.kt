@@ -25,7 +25,7 @@ class   ListScheduleModel(application: Application) : AndroidViewModel(applicati
         scheduleLoadErrorLD.value = false
         loadingLD.value = true
         queue = Volley.newRequestQueue( getApplication() )
-        val url = "https://jsonkeeper.com/b/6E4B"
+        val url = "https://www.jsonkeeper.com/b/6E4B"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
@@ -45,5 +45,9 @@ class   ListScheduleModel(application: Application) : AndroidViewModel(applicati
         stringRequest.tag = TAG
         queue?.add(stringRequest)
 
+    }
+    override fun onCleared() {
+        super.onCleared()
+        queue?.cancelAll(TAG)
     }
 }
