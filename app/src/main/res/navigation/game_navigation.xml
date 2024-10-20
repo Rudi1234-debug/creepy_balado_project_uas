@@ -50,5 +50,17 @@
         <argument
             android:name="url"
             app:argType="string" />
+        <action
+            android:id="@+id/actionTeamDetailFragment"
+            app:destination="@id/teamDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.example.anmp_creppybalado_project.view.TeamDetailFragment"
+        android:label="fragment_team_detail"
+        tools:layout="@layout/fragment_team_detail" >
+        <argument
+            android:name="url"
+            app:argType="string" />
     </fragment>
 </navigation>
