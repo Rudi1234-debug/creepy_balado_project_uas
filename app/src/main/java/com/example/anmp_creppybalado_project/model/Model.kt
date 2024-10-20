@@ -22,19 +22,16 @@ data class Schedule(
     val description: String?,
     )
 data class Member(
+    val team: String,
+    val game: String,
     val name: String,
     val profil: String,
     val role: String
 )
 
-data class Team(
-    val name: String,
-    val game: String,
-    val members: List<Member>
-)
-
 data class Game(
     val id: String?,
+    val name: String,
     val url: String?
 )
 
