@@ -19,6 +19,9 @@ class HomeFragment : Fragment() {
         binding.btnWhatWePlay.setOnClickListener {
             findNavController().navigate(R.id.itemWhatWePlay)
         }
+        binding.btnOurSchedule.setOnClickListener{
+            findNavController().navigate(R.id.itemOurSchedule)
+        }
         return binding.root
     }
 }
