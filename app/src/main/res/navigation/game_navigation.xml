@@ -36,7 +36,11 @@
         android:id="@+id/itemOurSchedule"
         android:name="com.example.anmp_creppybalado_project.view.ScheduleFragment"
         android:label="fragment_schedule"
-        tools:layout="@layout/fragment_schedule" />
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/actionScheduleDetail"
+            app:destination="@id/scheduleDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemWhoWeAre"
         android:name="com.example.anmp_creppybalado_project.view.WhoWeAreFragment"
@@ -50,5 +54,22 @@
         <argument
             android:name="url"
             app:argType="string" />
+        <action
+            android:id="@+id/actionTeamDetailFragment"
+            app:destination="@id/teamDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.example.anmp_creppybalado_project.view.TeamDetailFragment"
+        android:label="fragment_team_detail"
+        tools:layout="@layout/fragment_team_detail" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleDetailFragment"
+        android:name="com.example.anmp_creppybalado_project.view.ScheduleDetailFragment"
+        android:label="fragment_schedule_detail"
+        tools:layout="@layout/fragment_schedule_detail" />
 </navigation>

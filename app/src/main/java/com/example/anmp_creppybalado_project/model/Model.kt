@@ -16,25 +16,24 @@ data class DetailPlay(
 )
 
 data class Schedule(
-    val datePicker: DatePicker?,
-    val eventName: String?,
-    val teamName: String?,
-    val description: String?,
+    val id: String?,
+    val tanggal: String?,
+    val bulan: String?,
+    val deskripsi: String?,
+    val game: String?,
+    val team: String?
     )
 data class Member(
+    val team: String,
+    val game: String,
     val name: String,
     val profil: String,
     val role: String
 )
 
-data class Team(
-    val name: String,
-    val game: String,
-    val members: List<Member>
-)
-
 data class Game(
     val id: String?,
+    val name: String,
     val url: String?
 )
 
