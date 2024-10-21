@@ -31,6 +31,9 @@
         <argument
             android:name="url"
             app:argType="string" />
+        <action
+            android:id="@+id/action_achievementFragment"
+            app:destination="@id/achievementFragment2" />
     </fragment>
     <fragment
         android:id="@+id/itemOurSchedule"
@@ -72,4 +75,9 @@
         android:name="com.example.anmp_creppybalado_project.view.ScheduleDetailFragment"
         android:label="fragment_schedule_detail"
         tools:layout="@layout/fragment_schedule_detail" />
+    <fragment
+        android:id="@+id/achievementFragment2"
+        android:name="com.example.anmp_creppybalado_project.view.AchievementFragment"
+        android:label="Achievement"
+        tools:layout="@layout/fragment_achievement" />
 </navigation>

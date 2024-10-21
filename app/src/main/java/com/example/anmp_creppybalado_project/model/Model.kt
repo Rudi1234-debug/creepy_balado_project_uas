@@ -37,3 +37,16 @@ data class Game(
     val url: String?
 )
 
+data class GameAchievement(
+    val name: String,
+    val image: String,
+    val achievements: List<Achievements>,
+    val achievementYears: List<Int>
+)
+
+data class Achievements(
+    val title: String,
+    val description: String,
+    val year: Int
+)
+
