@@ -38,10 +38,11 @@ data class Game(
 )
 
 data class GameAchievement(
-    val name: String,
-    val image: String,
-    val achievements: List<Achievements>,
-    val achievementYears: List<Int>
+//    val name: String,
+//    val image: String,
+//    val achievements: List<Achievements>,
+//    val achievementYears: List<Int>
+    val achdesc:String
 )
 
 data class Achievements(
@@ -49,4 +50,13 @@ data class Achievements(
     val description: String,
     val year: Int
 )
+
+data class achieveDoang(
+    val gameDesc:String,
+)
+
+data class RudiList(
+    val name: String?
+)
+
 

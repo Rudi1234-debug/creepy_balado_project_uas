@@ -17,14 +17,15 @@ import com.example.anmp_creppybalado_project.viewmodel.ListWhatWePlayModel
 
 class WhatWePlayFragment : Fragment() {
     private lateinit var viewModel: ListWhatWePlayModel
-    private val whatWePlayAdapter  = WhatWePlayAdapter(arrayListOf())
+    private val whatWePlayAdapter  = WhatWePlayAdapter(arrayListOf(), arrayListOf())
     private lateinit var binding: FragmentWhatWePlayBinding
-    private lateinit var bindings: HomeCardItemBinding //binding untuk tombol masing" card
+    private lateinit var bindings: HomeCardItemBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWhatWePlayBinding.inflate(inflater, container, false)
+        bindings = HomeCardItemBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,36 +42,6 @@ class WhatWePlayFragment : Fragment() {
             binding.progressLoad.visibility = View.VISIBLE
             viewModel.refresh()
             binding.refreshLayout.isRefreshing = false
-        }
-
-        //jika tombol achievement di tekan
-        bindings.btnAchievement.setOnClickListener(){
-            val gameName = bindings.txtGame.text.toString()
-            if (gameName == "VALORANT"){
-                val bundle = Bundle()
-                bundle.putString("gameName", gameName)
-                findNavController().navigate(R.id.action_achievementFragment, bundle)
-            }
-            if(gameName == "MOBILE LEGENDS"){
-                val bundle = Bundle()
-                bundle.putString("gameName", gameName)
-                findNavController().navigate(R.id.action_achievementFragment, bundle)
-            }
-            if(gameName == "COUNTER STRIKE 2"){
-                val bundle = Bundle()
-                bundle.putString("gameName", gameName)
-                findNavController().navigate(R.id.action_achievementFragment, bundle)
-            }
-            if(gameName == "DOTA 2"){
-                val bundle = Bundle()
-                bundle.putString("gameName", gameName)
-                findNavController().navigate(R.id.action_achievementFragment, bundle)
-            }
-            if(gameName == "PUBG MOBILE"){
-                val bundle = Bundle()
-                bundle.putString("gameName", gameName)
-                findNavController().navigate(R.id.action_achievementFragment, bundle)
-            }
         }
 
         observeViewModel()
