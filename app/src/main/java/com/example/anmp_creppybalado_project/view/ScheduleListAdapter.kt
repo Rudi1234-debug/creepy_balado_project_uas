@@ -22,8 +22,9 @@ class ScheduleListAdapter(val scheduleList:ArrayList<Schedule>)
         holder.binding.txtTanggal.text = scheduleList[position].tanggal
         holder.binding.txtBulan.text = scheduleList[position].bulan
         holder.binding.txtDeskripsi.text = scheduleList[position].deskripsi
-        holder.binding.txtNamaTeam.text = scheduleList[position].team
         holder.binding.txtGame.text = scheduleList[position].game
+        holder.binding.txtTeam.text = scheduleList[position].team
+
         holder.binding.btnNext.setOnClickListener {
             val action = ScheduleFragmentDirections.actionScheduleDetail()
             Navigation.findNavController(it).navigate(action)

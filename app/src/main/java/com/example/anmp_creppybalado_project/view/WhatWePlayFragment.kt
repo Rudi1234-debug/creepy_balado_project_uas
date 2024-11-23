@@ -7,20 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.anmp_creppybalado_project.R
 import com.example.anmp_creppybalado_project.databinding.FragmentWhatWePlayBinding
+import com.example.anmp_creppybalado_project.databinding.HomeCardItemBinding
 import com.example.anmp_creppybalado_project.viewmodel.ListWhatWePlayModel
 
 class WhatWePlayFragment : Fragment() {
     private lateinit var viewModel: ListWhatWePlayModel
-    private val whatWePlayAdapter  = WhatWePlayAdapter(arrayListOf())
+    private val whatWePlayAdapter  = WhatWePlayAdapter(arrayListOf(), arrayListOf())
     private lateinit var binding: FragmentWhatWePlayBinding
+    private lateinit var bindings: HomeCardItemBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWhatWePlayBinding.inflate(inflater, container, false)
+        bindings = HomeCardItemBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -38,7 +43,9 @@ class WhatWePlayFragment : Fragment() {
             viewModel.refresh()
             binding.refreshLayout.isRefreshing = false
         }
+
         observeViewModel()
+
     }
 
     fun observeViewModel() {
