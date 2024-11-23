@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtRegister"
+            android:layout_width="200dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="Register"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtFirstName"
+            android:layout_width="312dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="80dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="enter your first name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRegister" />
+
+        <EditText
+            android:id="@+id/txtLastName"
+            android:layout_width="311dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="enter your last name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
+
+        <EditText
+            android:id="@+id/txtNewUsername"
+            android:layout_width="313dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="enter your username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLastName" />
+
+        <EditText
+            android:id="@+id/txtNewPassword"
+            android:layout_width="311dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="enter your password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNewUsername" />
+
+        <EditText
+            android:id="@+id/txtRepeatPassword"
+            android:layout_width="310dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Repeat your password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNewPassword" />
+
+        <CheckBox
+            android:id="@+id/cbAgree"
+            android:layout_width="245dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="12dp"
+            android:text="I agree with terms and conditions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.295"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepeatPassword" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="28dp"
+            android:text="Back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbAgree" />
+
+        <Button
+            android:id="@+id/btnEnter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="52dp"
+            android:text="Enter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbAgree" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
