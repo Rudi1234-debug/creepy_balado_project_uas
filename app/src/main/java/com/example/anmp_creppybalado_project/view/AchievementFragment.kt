@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.anmp_creppybalado_project.R
 import com.example.anmp_creppybalado_project.databinding.FragmentAchievementBinding
+import com.example.anmp_creppybalado_project.model.GameAchievement
 import com.example.anmp_creppybalado_project.viewmodel.ListAchivementModel
 
 
@@ -39,36 +41,45 @@ class AchievementFragment : Fragment() {
 
         gameName = arguments?.getString("gameName")
 
-        viewModel.refresh()
+//        viewModel.refresh()
 
-        viewModel.achievementLD.observe(viewLifecycleOwner){achievementList ->
-            viewModel.getAchievements(gameName ?: "")
-            val yearAdapter = ArrayAdapter(
-                requireContext(),
-                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
-                achievementList.map { it.achievementYears } // Mengambil tahun dari setiap achievement
-            )
-            binding.spnAchiveYear.adapter = yearAdapter
+        viewModel.fetch()
 
-            binding.spnAchiveYear.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+//        binding.lblDescAch.text =
+//
+//        viewModel.achievementLD.observe(viewLifecycleOwner){achievementList ->
+//            viewModel.getAchievements(gameName ?: "")
+//            val yearAdapter = ArrayAdapter(
+//                requireContext(),
+//                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
+//                achievementList.map { it.achievementYears } // Mengambil tahun dari setiap achievement
+//            )
+//            binding.spnAchiveYear.adapter = yearAdapter
+//
+//            binding.spnAchiveYear.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//                override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+//
+//                    val selectedYear = parent.getItemAtPosition(pos) as Int
+//
+//                    val selectedAchievement = achievementList.find { it.achievementYears.equals(selectedYear) }
+//                    selectedAchievement?.let {
+//                        binding.lblDescAch.text = "${it.achievements.get(1)} ${it.achievements.get(2)}"
+//                    } ?: run {
+//                        binding.lblDescAch.text = "Belum ada riwayat"
+//                    }
+//
+//                }
 
-                    val selectedYear = parent.getItemAtPosition(pos) as Int
+//                override fun onNothingSelected(parent: AdapterView<*>) {
+//                    // Do nothing
+//                }
 
-                    val selectedAchievement = achievementList.find { it.achievementYears.equals(selectedYear) }
-                    selectedAchievement?.let {
-                        binding.lblDescAch.text = "${it.achievements.get(1)} ${it.achievements.get(2)}"
-                    } ?: run {
-                        binding.lblDescAch.text = "Belum ada riwayat"
-                    }
 
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>) {
-                    // Do nothing
-                }
-            }
-        }
+    }
+    fun observeViewModel(){
+        viewModel.achivementDoangLD.observe(viewLifecycleOwner, Observer {
+            binding.lblDescAch.text = it.achdesc
+        })
     }
 
 }

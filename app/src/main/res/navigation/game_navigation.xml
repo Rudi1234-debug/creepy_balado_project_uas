@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_achievementFragment"
             app:destination="@id/achievementFragment2" />
+        <action
+            android:id="@+id/actionRudiFragment"
+            app:destination="@id/rudiFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemOurSchedule"
@@ -79,5 +82,18 @@
         android:id="@+id/achievementFragment2"
         android:name="com.example.anmp_creppybalado_project.view.AchievementFragment"
         android:label="Achievement"
-        tools:layout="@layout/fragment_achievement" />
+        tools:layout="@layout/fragment_achievement" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/rudiFragment"
+        android:name="com.example.anmp_creppybalado_project.view.RudiFragment"
+        android:label="fragment_rudi"
+        tools:layout="@layout/fragment_rudi" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
 </navigation>

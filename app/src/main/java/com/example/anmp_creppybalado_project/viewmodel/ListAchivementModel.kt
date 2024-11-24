@@ -12,6 +12,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import android.util.Log
 import com.example.anmp_creppybalado_project.model.Achievements
+import com.example.anmp_creppybalado_project.model.achieveDoang
 
 class ListAchivementModel(application: Application):AndroidViewModel(application){
     val TAG = "volleyTag"
@@ -21,6 +22,15 @@ class ListAchivementModel(application: Application):AndroidViewModel(application
     val achievementLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
+    val achivementDoangLD=MutableLiveData<GameAchievement>()
+
+    fun fetch()
+    {
+        achivementDoangLD.value =
+            GameAchievement("Rank 4 Junior Open Elite Class 2024")
+        achievementLoadErrorLD.value = true
+        loadingLD.value = true
+    }
     fun refresh(){
         achievementLoadErrorLD.value = true
         loadingLD.value=true
@@ -45,15 +55,15 @@ class ListAchivementModel(application: Application):AndroidViewModel(application
         queue?.add(stringRequest)
     }
 
-    fun getAchievements(gameName: String) {
-        refresh()
-        achievementLD.observeForever { allAchievements ->
-            if (allAchievements != null) {
-                val filteredAchievements = allAchievements.filter { it.name == gameName }
-                achievementLD.value = ArrayList(filteredAchievements)
-            }
-        }
-    }
+//    fun getAchievements(gameName: String) {
+//        refresh()
+//        achievementLD.observeForever { allAchievements ->
+//            if (allAchievements != null) {
+//                val filteredAchievements = allAchievements.filter { it.name == gameName }
+//                achievementLD.value = ArrayList(filteredAchievements)
+//            }
+//        }
+//    }
 
     override fun onCleared() {
         super.onCleared()

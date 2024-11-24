@@ -8,7 +8,7 @@ import com.example.anmp_creppybalado_project.databinding.HomeCardItemBinding
 import com.example.anmp_creppybalado_project.model.WhatWePlay
 import com.squareup.picasso.Picasso
 
-class WhatWePlayAdapter(val whatWePlayList:ArrayList<WhatWePlay>, val)
+class WhatWePlayAdapter(val whatWePlayList:ArrayList<WhatWePlay>)
     :RecyclerView.Adapter<WhatWePlayAdapter.WhatWePlayViewHolder>()
 {
     class WhatWePlayViewHolder(var binding: HomeCardItemBinding)
