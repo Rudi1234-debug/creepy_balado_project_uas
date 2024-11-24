@@ -2,6 +2,9 @@ package com.example.anmp_creppybalado_project.model
 
 import android.widget.DatePicker
 import com.google.gson.annotations.SerializedName
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 data class WhatWePlay(
     val id: String?,
@@ -58,5 +61,21 @@ data class achieveDoang(
 data class RudiList(
     val name: String?
 )
+
+@Entity
+data class User(
+    @ColumnInfo(name="firstname")
+    var firstname: String?,
+    @ColumnInfo(name="lastname")
+    var lastname: String?,
+    @ColumnInfo(name="username")
+    var username: String?,
+    @ColumnInfo(name="password")
+    var password: String?,
+){
+    @PrimaryKey(autoGenerate = true)
+    var userid:Int = 0
+
+}
 
 
