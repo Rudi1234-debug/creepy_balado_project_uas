@@ -16,7 +16,10 @@ class WhoWeAreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_who_we_are, container, false)
+//        return inflater.inflate(R.layout.fragment_who_we_are, container, false)
+//
+        binding = FragmentWhoWeAreBinding.inflate(inflater,container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
