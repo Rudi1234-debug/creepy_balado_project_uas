@@ -7,20 +7,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/icon_1"
-        android:title="What We Play"
+        android:title="Apply Team"
         app:showAsAction="always" />
     <item
         android:id="@+id/itemWhoWeAre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/icon_2"
-        android:title="Who We Are"
+        android:title="Profile"
         app:showAsAction="always" />
     <item
         android:id="@+id/itemOurSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/icon_3"
-        android:title="Our Schedule"
+        android:title="Log Out"
         app:showAsAction="always" />
 </menu>
