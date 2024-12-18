@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,6 +9,62 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/applytext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:fontFamily="sans-serif-black"
+            android:text="APPLY TEAM"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <AutoCompleteTextView
+            android:id="@+id/dbchoosegame"
+            android:layout_width="261dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="84dp"
+            android:text="Choose Game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/applytext" />
+
+        <AutoCompleteTextView
+            android:id="@+id/dbchooseteam"
+            android:layout_width="259dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="Choose Team"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dbchoosegame" />
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="263dp"
+            android:layout_height="193dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Description"
+            tools:layout_editor_absoluteX="77dp"
+            tools:layout_editor_absoluteY="341dp" />
+
+        <Button
+            android:id="@+id/applybutton"
+            android:layout_width="149dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="40dp"
+            android:text="Apply Team"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.778"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
