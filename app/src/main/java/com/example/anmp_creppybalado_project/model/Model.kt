@@ -18,14 +18,14 @@ data class DetailPlay(
     val records: String?
 )
 
-data class Schedule(
+/*data class Schedule(
     val id: String?,
     val tanggal: String?,
     val bulan: String?,
     val deskripsi: String?,
     val game: String?,
     val team: String?
-    )
+    )*/
 /*data class Member(
     val team: String,
     val game: String,
@@ -48,12 +48,30 @@ data class GameAchievement(
     val achdesc:String
 )
 
-data class Achievements(
+data class User(
+    @ColumnInfo(name="name")
+    var name: String?,
+    @ColumnInfo(name="image")
+    var image: String?,
+    @ColumnInfo(name="achievement")
+    var achievement: List<Achievements>?,
+    @ColumnInfo(name="achievementYears")
+    var achievementYears: List<Int>?,
+)
+/*data class Achievements(
     val title: String,
     val description: String,
     val year: Int
-)
+)*/
 
+data class Achievements(
+    @ColumnInfo(name="title")
+    var title: String?,
+    @ColumnInfo(name="description")
+    var description: String?,
+    @ColumnInfo(name="year")
+    var year: Int?
+)
 data class achieveDoang(
     val gameDesc:String,
 )
@@ -114,7 +132,21 @@ data class Game(
     val url: String,
 )
 
-
+@Entity
+data class Schedule(
+    @ColumnInfo(name="id")
+    val id: String?,
+    @ColumnInfo(name="tanggal")
+    val tanggal: String?,
+    @ColumnInfo(name="bulan")
+    val bulan: String?,
+    @ColumnInfo(name="deskripsi")
+    val deskripsi: String?,
+    @ColumnInfo(name="game")
+    val game: String?,
+    @ColumnInfo(name="team")
+    val team: String?
+)
 
 
 
