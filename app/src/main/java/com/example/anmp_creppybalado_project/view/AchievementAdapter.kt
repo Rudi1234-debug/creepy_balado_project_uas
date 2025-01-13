@@ -19,8 +19,7 @@ class AchievementAdapter(val achList:ArrayList<GameAchievement>)
     class AchievementViewHolder(var binding: FragmentAchievementBinding)
         :RecyclerView.ViewHolder(binding.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):AchievementViewHolder {
-        val binding = FragmentAchievementBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false)
+        val binding = FragmentAchievementBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return AchievementViewHolder(binding)
 
     }
