@@ -6,12 +6,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-data class WhatWePlay(
+/*data class WhatWePlay(
     val id: String?,
     val url: String?,
     val name: String?,
     val description: String?,
-)
+)*/
 
 data class DetailPlay(
     val year: DatePicker?,
@@ -26,19 +26,19 @@ data class Schedule(
     val game: String?,
     val team: String?
     )
-data class Member(
+/*data class Member(
     val team: String,
     val game: String,
     val name: String,
     val profil: String,
     val role: String
-)
+)*/
 
-data class Game(
+/*data class Game(
     val id: String?,
     val name: String,
     val url: String?
-)
+)*/
 
 data class GameAchievement(
 //    val name: String,
@@ -77,5 +77,44 @@ data class User(
     var userid:Int = 0
 
 }
+
+@Entity
+data class WhatWePlay(
+    @ColumnInfo(name="id")
+    val id: String?,
+    @ColumnInfo(name="url")
+    val url: String?,
+    @ColumnInfo(name="name")
+    val name: String?,
+    @ColumnInfo(name="description")
+    val description: String?,
+)
+
+@Entity
+data class Member(
+    @ColumnInfo(name="team")
+    val team: String,
+    @ColumnInfo(name="game")
+    val game: String,
+    @ColumnInfo(name="name")
+    val name: String,
+    @ColumnInfo(name="profil")
+    val profil: String,
+    @ColumnInfo(name="role")
+    val role: String
+)
+
+@Entity
+data class Game(
+    @ColumnInfo(name="id")
+    val id: String?,
+    @ColumnInfo(name="name")
+    val name: String,
+    @ColumnInfo(name="url")
+    val url: String,
+)
+
+
+
 
 
