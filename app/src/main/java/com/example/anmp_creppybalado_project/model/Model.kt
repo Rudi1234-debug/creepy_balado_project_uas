@@ -40,15 +40,15 @@ data class DetailPlay(
     val url: String?
 )*/
 
-data class GameAchievement(
+/*data class GameAchievement(
 //    val name: String,
 //    val image: String,
 //    val achievements: List<Achievements>,
 //    val achievementYears: List<Int>
     val achdesc:String
-)
+)*/
 
-data class User(
+data class GameAchievement(
     @ColumnInfo(name="name")
     var name: String?,
     @ColumnInfo(name="image")
@@ -98,8 +98,9 @@ data class User(
 
 @Entity
 data class WhatWePlay(
+    @PrimaryKey
     @ColumnInfo(name="id")
-    val id: String?,
+    val id: String,
     @ColumnInfo(name="url")
     val url: String?,
     @ColumnInfo(name="name")

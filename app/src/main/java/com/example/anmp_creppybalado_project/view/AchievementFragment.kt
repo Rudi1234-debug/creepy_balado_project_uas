@@ -43,7 +43,7 @@ class AchievementFragment : Fragment() {
 
 //        viewModel.refresh()
 
-        viewModel.fetch()
+        //viewModel.fetch()
 
 //        binding.lblDescAch.text =
 //
@@ -76,10 +76,10 @@ class AchievementFragment : Fragment() {
 
 
     }
-    fun observeViewModel(){
+    /*fun observeViewModel(){
         viewModel.achivementDoangLD.observe(viewLifecycleOwner, Observer {
             binding.lblDescAch.text = it.achdesc
         })
-    }
+    }*/
 
 }

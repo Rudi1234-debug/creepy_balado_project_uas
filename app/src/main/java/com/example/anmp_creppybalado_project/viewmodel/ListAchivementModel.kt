@@ -24,13 +24,13 @@ class ListAchivementModel(application: Application):AndroidViewModel(application
 
     val achivementDoangLD=MutableLiveData<GameAchievement>()
 
-    fun fetch()
+    /*fun fetch()
     {
         achivementDoangLD.value =
             GameAchievement("Rank 4 Junior Open Elite Class 2024")
         achievementLoadErrorLD.value = true
         loadingLD.value = true
-    }
+    }*/
     fun refresh(){
         achievementLoadErrorLD.value = true
         loadingLD.value=true

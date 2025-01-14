@@ -52,11 +52,12 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.8.1")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.android.gms:play-services-games:23.2.0")
+    implementation("androidx.room:room-common:2.6.1")
     testImplementation("junit:junit:4.13.2")
 
     implementation ("androidx.room:room-runtime:2.5.1")
     implementation ("androidx.room:room-ktx:2.5.1")
-
+    kapt("androidx.room:room-compiler:2.5.1")
 
 
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
