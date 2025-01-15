@@ -4,7 +4,6 @@
     import androidx.room.Database
     import androidx.room.Room
     import androidx.room.RoomDatabase
-    import com.example.anmp_creppybalado_project.model.UserDao
     import com.example.anmp_creppybalado_project.Util.DB_NAME
     import com.example.anmp_creppybalado_project.Util.MIGRATION_1_2
 
@@ -12,7 +11,6 @@
     abstract class ModelDatabase : RoomDatabase() {
         abstract fun modelDao(): ModelDao
         abstract fun whatWePlayDao(): WhatWePlayDao
-        abstract fun userDao(): UserDao
 
         companion object {
             @Volatile

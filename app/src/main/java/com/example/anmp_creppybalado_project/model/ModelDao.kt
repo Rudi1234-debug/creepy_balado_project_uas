@@ -14,8 +14,8 @@ interface ModelDao {
     @Query("SELECT * FROM user") // kalo perlu ORDER BY, tambah ORDER BY
     fun selectAllTodo(): List<User>
 
-    @Query("SELECT * FROM user WHERE userid= :id")
-    fun selectTodo(id:Int): User
+    /*@Query("SELECT * FROM user WHERE userid= :id")
+    fun selectTodo(id:Int): User*/
 
     @Query("UPDATE User SET firstname=:firstname, lastname=:lastname, username=:username WHERE userid = :id")
     fun update(firstname:String, lastname:String, username:String, id:Int)

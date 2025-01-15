@@ -134,8 +134,9 @@ data class Game(
 
 @Entity
 data class Schedule(
+    @PrimaryKey
     @ColumnInfo(name="id")
-    val id: String?,
+    val id: String,
     @ColumnInfo(name="tanggal")
     val tanggal: String?,
     @ColumnInfo(name="bulan")
