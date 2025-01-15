@@ -80,7 +80,7 @@ data class RudiList(
     val name: String?
 )
 
-@Entity
+@Entity (tableName = "User")
 data class User(
     @ColumnInfo(name="firstname")
     var firstname: String?,
@@ -92,8 +92,7 @@ data class User(
     var password: String?,
 ){
     @PrimaryKey(autoGenerate = true)
-    var userid:Int = 0
-
+    var userid: Int = 0
 }
 
 @Entity
@@ -148,6 +147,5 @@ data class Schedule(
     @ColumnInfo(name="team")
     val team: String?
 )
-
 
 

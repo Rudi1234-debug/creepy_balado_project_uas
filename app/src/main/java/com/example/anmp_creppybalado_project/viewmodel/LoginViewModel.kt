@@ -3,8 +3,14 @@ package com.example.anmp_creppybalado_project.viewmodel
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.example.anmp_creppybalado_project.model.ModelDatabase
+import com.example.anmp_creppybalado_project.model.User
+import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -12,37 +18,37 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     val passwordLD = MutableLiveData<String>()
     val loginSuccessLD = MutableLiveData<Boolean>()
     val loginErrorLD = MutableLiveData<Boolean>()
+    val navigateToLogin = MutableLiveData<Boolean>()
 
-    private val userDatabase = mapOf(
-        "Rudi Novianto" to "12345678",
-        "Aurelius Prasetio" to "12345678",
-        "Gede Januarta" to "12345678"
-    )
-
-    private val preferences: SharedPreferences =
-        application.getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
-
-    init {
-        checkLoggedInStatus()
+    companion object {
+        var currentUser: User? = null
     }
+    private val userDao = ModelDatabase.buildDatabase(application).userDao()
 
-    private fun checkLoggedInStatus() {
-        val loggedIn = preferences.getBoolean("logged_in", false)
-        loginSuccessLD.value = loggedIn
-    }
 
     fun onLoginClicked() {
         val username = usernameLD.value
         val password = passwordLD.value
 
         if (username != null && password != null) {
-            if (userDatabase[username] == password) {
-                preferences.edit().putBoolean("logged_in", true).apply()
-                loginSuccessLD.value = true
-                loginErrorLD.value = false
-            } else {
-                loginSuccessLD.value = false
-                loginErrorLD.value = true
+            viewModelScope.launch {
+                val user = userDao.getUser(username, password)
+                if (user != null) {
+                    currentUser = user
+                    loginSuccessLD.value = true
+                    loginErrorLD.value = false
+
+                    val sharedPreferences = getApplication<Application>().getSharedPreferences("user_session", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("username", username)
+                    editor.putString("password", password)
+                    editor.putBoolean("is_logged_in", true)
+                    editor.apply()
+                } else {
+                    loginSuccessLD.value = false
+                    loginErrorLD.value = true
+
+                }
             }
         } else {
             loginSuccessLD.value = false
@@ -51,7 +57,14 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun logout() {
-        preferences.edit().putBoolean("logged_in", false).apply()
+        currentUser = null
         loginSuccessLD.value = false
+
+        val sharedPreferences = getApplication<Application>().getSharedPreferences("user_session", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+
+        navigateToLogin.value = true
     }
 }

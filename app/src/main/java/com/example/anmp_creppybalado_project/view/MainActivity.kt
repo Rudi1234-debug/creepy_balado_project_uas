@@ -1,5 +1,6 @@
 package com.example.anmp_creppybalado_project.view
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
@@ -26,9 +27,22 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navController)
         NavigationUI.setupWithNavController(binding.navView, navController)
 
+        val isLoggedIn = checkIfUserIsLoggedIn()
+        val startDestination = if (isLoggedIn) R.id.homeFragment else R.id.loginFragment
+
+        val navGraph = navController.navInflater.inflate(R.navigation.game_navigation)
+        navGraph.setStartDestination(startDestination)
+        navController.graph = navGraph
+
     }
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, binding.drawerLayout)
                 || super.onSupportNavigateUp()
     }
+
+    private fun checkIfUserIsLoggedIn(): Boolean {
+        val sharedPreferences = getSharedPreferences("user_session", Context.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("is_logged_in", false)
+    }
+
 }
