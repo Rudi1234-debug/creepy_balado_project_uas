@@ -29,6 +29,7 @@ class ScheduleFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ListScheduleModel::class.java)
         viewModel.refresh()
+        //viewModel.insertSchedule()
 
         binding.recView.layoutManager = LinearLayoutManager(context)
         binding.recView.adapter = scheduleListAdapter
@@ -42,7 +43,7 @@ class ScheduleFragment : Fragment() {
         observeViewModel()
     }
 
-    fun observeViewModel() {
+    /*fun observeViewModel() {
         viewModel.scheduleLD.observe(viewLifecycleOwner, Observer {
             scheduleListAdapter.updateScheduleList(it)
         })
@@ -56,5 +57,22 @@ class ScheduleFragment : Fragment() {
             }
         })
 
+    }*/
+    private fun observeViewModel() {
+        viewModel.scheduleLD.observe(viewLifecycleOwner, Observer { whatWePlayList ->
+            whatWePlayList?.let {
+                scheduleListAdapter.updateScheduleList(ArrayList(it))
+                binding.recView.visibility = View.VISIBLE
+                binding.progressLoad.visibility = View.GONE
+            } ?: run {
+                binding.recView.visibility = View.GONE
+                binding.progressLoad.visibility = View.VISIBLE
+            }
+        })
+
+        viewModel.scheduleLoadErrorLD.observe(viewLifecycleOwner, Observer { isLoading ->
+            binding.progressLoad.visibility = if (isLoading == true) View.VISIBLE else View.GONE
+        })
     }
+
 }

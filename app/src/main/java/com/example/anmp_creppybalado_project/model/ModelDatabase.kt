@@ -6,11 +6,15 @@
     import androidx.room.RoomDatabase
     import com.example.anmp_creppybalado_project.Util.DB_NAME
     import com.example.anmp_creppybalado_project.Util.MIGRATION_1_2
+    //import com.example.anmp_creppybalado_project.Util.MIGRATION_2_3
 
     @Database(entities = [User ::class, WhatWePlay::class], version = 2)
     abstract class ModelDatabase : RoomDatabase() {
         abstract fun modelDao(): ModelDao
         abstract fun whatWePlayDao(): WhatWePlayDao
+        abstract fun memberDao(): MemberDao
+
+        abstract fun scheduleDao(): ScheduleDao
 
         companion object {
             @Volatile

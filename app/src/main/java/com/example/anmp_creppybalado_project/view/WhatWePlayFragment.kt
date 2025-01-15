@@ -38,7 +38,7 @@ class WhatWePlayFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ListWhatWePlayModel::class.java)
         viewModel.refresh()
-        viewModel.insertSampleData()
+        viewModel.insertWhatWePlay()
 
         binding.recView.layoutManager = LinearLayoutManager(context)
         binding.recView.adapter = whatWePlayAdapter
@@ -74,13 +74,11 @@ class WhatWePlayFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel._whatWePlayLD.observe(viewLifecycleOwner, Observer { whatWePlayList ->
-            // Check if whatWePlayList is not null before updating the adapter
             whatWePlayList?.let {
                 whatWePlayAdapter.updateWhatWePlayList(ArrayList(it))
                 binding.recView.visibility = View.VISIBLE
                 binding.progressLoad.visibility = View.GONE
             } ?: run {
-                // Handle the case where the list is null
                 binding.recView.visibility = View.GONE
                 binding.progressLoad.visibility = View.VISIBLE
             }

@@ -7,11 +7,12 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface TeamDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+interface MemberDao {
+    /*@Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg member: Member)
 
     @Query("SELECT * FROM member")
-    fun getAllMember(): LiveData<List<Member>>
+    fun getAllMember(): LiveData<List<Member>>*/
+
 
 }

@@ -8,9 +8,9 @@ import androidx.room.Query
 
 @Dao
 interface ScheduleDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    /*@Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg schedule: Schedule)
 
     @Query("SELECT * FROM schedule")
-    fun getAllSchedule(): LiveData<List<Schedule>>
+    fun getAllSchedule(): LiveData<List<Schedule>>*/
 }

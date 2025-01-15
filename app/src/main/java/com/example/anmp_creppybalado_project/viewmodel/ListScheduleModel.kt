@@ -9,7 +9,9 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.anmp_creppybalado_project.model.ModelDatabase
 import com.example.anmp_creppybalado_project.model.Schedule
+import com.example.anmp_creppybalado_project.model.WhatWePlay
 import com.example.anmp_creppybalado_project.view.ScheduleFragmentDirections
 import com.example.anmp_creppybalado_project.view.ScheduleListAdapter
 import com.google.gson.Gson
@@ -20,7 +22,8 @@ class   ListScheduleModel(application: Application) : AndroidViewModel(applicati
 
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
-    val scheduleLD = MutableLiveData<ArrayList<Schedule>>()
+    //val scheduleLD = MutableLiveData<ArrayList<Schedule>>()
+    val scheduleLD = MutableLiveData<List<Schedule>?>()
     val scheduleLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
@@ -55,8 +58,71 @@ class   ListScheduleModel(application: Application) : AndroidViewModel(applicati
         queue?.add(stringRequest)
 
     }
+    /*fun refresh() {
+        val schedules = arrayListOf(
+            com.example.anmp_creppybalado_project.model.Schedule(
+                id = "0",
+                tanggal = "05",
+                bulan = "Sep",
+                deskripsi = "Regional Qualifier - Valorant",
+                game = "VALORANT",
+                team = "Team A"
+            ),
+            com.example.anmp_creppybalado_project.model.Schedule(
+                id = "1",
+                tanggal = "02",
+                bulan = "Okt",
+                deskripsi = "Regional Qualifier - Mobile Legend",
+                game = "MOBILE LEGENDS",
+                team = "Team B"
+            ),
+            com.example.anmp_creppybalado_project.model.Schedule(
+                id = "2",
+                tanggal = "15",
+                bulan = "Sep",
+                deskripsi = "Regional Qualifier - Counter Strike 2",
+                game = "COUNTER STRIKE 2",
+                team = "Team C"
+            ),
+            com.example.anmp_creppybalado_project.model.Schedule(
+                id = "3",
+                tanggal = "08",
+                bulan = "Nov",
+                deskripsi = "Regional Qualifier - Dota 2",
+                game = "DOTA 2",
+                team = "Team D"
+            ),
+            com.example.anmp_creppybalado_project.model.Schedule(
+                id = "4",
+                tanggal = "10",
+                bulan = "Sep",
+                deskripsi = "Regional Qualifier - PUBG Mobile",
+                game = "PUBG MOBILE",
+                team = "Team E"
+            )
+        )
+
+        // Gunakan thread untuk memasukkan data ke database
+        Thread {
+            val scheduleDao = ModelDatabase.buildDatabase(getApplication()).scheduleDao()
+            scheduleDao.insertAll(*schedules.toTypedArray())
+            Log.d("refresh", "Data Schedule berhasil disimpan di database.")
+        }.start()
+    }*/
+
     override fun onCleared() {
         super.onCleared()
         queue?.cancelAll(TAG)
     }
+
+    /*fun insertSchedule() {
+        val scheduleDao = ModelDatabase.buildDatabase(getApplication()).scheduleDao()
+        val liveDataSchedule = scheduleDao.getAllSchedule()
+        liveDataSchedule.observeForever { schedules ->
+            scheduleLD.postValue(schedules)
+            Log.d("insertSampleData", "Sample data berhasil dimasukkan ke scheduleLD.")
+        }
+    }*/
+
+
 }
