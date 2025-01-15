@@ -30,6 +30,8 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         viewModel.registerSuccessLD.observe(viewLifecycleOwner, { success ->
             if (success) {
                 findNavController().navigate(R.id.action_register_to_login)

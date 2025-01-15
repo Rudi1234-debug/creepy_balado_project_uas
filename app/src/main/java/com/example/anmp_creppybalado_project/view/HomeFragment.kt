@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.itemOurSchedule)
         }
         binding.btnWhoWeAre.setOnClickListener{
-            findNavController().navigate(R.id.itemWhoWeAre)
+            findNavController().navigate(R.id.loginFragment)
         }
         return binding.root
     }

@@ -12,6 +12,8 @@
         abstract fun modelDao(): ModelDao
         abstract fun whatWePlayDao(): WhatWePlayDao
 
+        abstract fun userDao():UserDao
+
         companion object {
             @Volatile
             private var instance: ModelDatabase? = null
